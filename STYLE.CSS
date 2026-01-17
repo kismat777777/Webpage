@@ -1,0 +1,151 @@
+head{
+  font-size:30px;
+  color: skyblue;
+  text-align: center;
+  background-color: rebeccapurple;
+  
+}
+h1{
+  
+  
+    font-size:30px;
+  color: skyblue;
+  text-align: center;
+  background-color: rebeccapurple;
+  
+
+  
+}
+
+
+h2{
+  
+      font-size:20px;
+  color: skyblue;
+  text-align: center;
+  background-color: rebeccapurple;
+  
+}
+
+  
+  
+  
+  
+
+.class-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 18px;
+    max-width: 650px;
+    margin: auto;
+}
+
+/* BUTTON BASE */
+.class-btn {
+    position: relative;
+    overflow: hidden;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #4CAF50, #1b5e20);
+    color: white;
+    cursor: pointer;
+
+    transition: 
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+
+    animation: fadeUp 0.7s ease forwards;
+}
+
+.class-btn span {
+    position: relative;
+    z-index: 2;
+}
+
+/* HOVER EFFECT */
+.class-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+}
+
+/* PRESS / CLICK EFFECT */
+.class-btn:active {
+    transform: scale(0.92);
+    animation: bounce 0.35s ease;
+}
+
+/* RIPPLE EFFECT */
+.class-btn::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+}
+
+.class-btn:active::after {
+    animation: ripple 0.6s ease-out;
+}
+
+/* GLOW PULSE */
+.class-btn:focus {
+    animation: glow 1s infinite alternate;
+    outline: none;
+}
+
+/* ANIMATIONS */
+@keyframes ripple {
+    0% {
+        transform: translate(-50%, -50%) scale(0);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(15);
+        opacity: 0;
+    }
+}
+
+@keyframes bounce {
+    0% { transform: scale(0.92); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(76, 175, 80, 1);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+

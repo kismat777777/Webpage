@@ -1,0 +1,410 @@
+/* =========================
+   RESET & BASE
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background: #f2f4f7;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  background: #fff;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 40px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search-box input {
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.profile {
+  font-size: 28px;
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+nav {
+  background: #2d5ea8;
+  animation: slideDown 0.8s ease;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+nav ul li {
+  padding: 12px 18px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+nav ul li:hover {
+  background: #1f4a85;
+}
+
+/* =========================
+   SLIDER
+========================= */
+
+.slider-section {
+  padding: 20px;
+}
+
+.slider {
+  display: flex;
+  overflow-x: auto;
+  gap: 12px;
+}
+
+.slider img {
+  width: 250px;
+  height: 150px;
+  border-radius: 6px;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.slider img:hover {
+  transform: scale(1.08);
+}
+
+.scroll-text {
+  text-align: center;
+  font-size: 12px;
+  color: #777;
+}
+
+/* =========================
+   SOCIAL
+========================= */
+
+.social {
+  background: #f7f9fb;
+  text-align: center;
+  padding: 25px;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.social-icons img {
+  width: 45px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+  transform: translateY(-8px) scale(1.1);
+}
+
+/* =========================
+   SECTIONS & CARDS
+========================= */
+
+.section {
+  padding: 25px 20px;
+}
+
+.course-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 15px;
+}
+
+.course-card,
+.resources,
+.testimonial {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card {
+  display: flex;
+  gap: 12px;
+}
+
+.course-card img {
+  width: 60px;
+  border-radius: 50%;
+}
+
+.course-card:hover,
+.resources:hover,
+.testimonial:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.stars {
+  color: gold;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.enroll-btn {
+  background: #2d5ea8;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 6px;
+  position: relative;
+  overflow: hidden;
+}
+
+.enroll-btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateX(-100%);
+  transition: transform 0.4s;
+}
+
+.enroll-btn:hover::after {
+  transform: translateX(0);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #2d5ea8;
+  color: #fff;
+  text-align: center;
+  padding: 12px;
+}
+
+/* =========================
+   SEARCH HIGHLIGHT EFFECTS
+========================= */
+
+.element-highlight {
+  background: rgba(255, 235, 59, 0.35);
+  border: 2px solid #fbc02d;
+  border-radius: 6px;
+  padding: 6px;
+  box-shadow: 0 0 15px rgba(251, 192, 45, 0.7);
+  animation: glowPulse 1.2s infinite alternate;
+}
+
+.bold-text {
+  font-weight: 800;
+  color: #000;
+}
+
+.tilt-animate {
+  animation: tiltShake 0.6s ease-in-out;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes glowPulse {
+  from {
+    box-shadow: 0 0 8px rgba(251, 192, 45, 0.6);
+  }
+  to {
+    box-shadow: 0 0 18px rgba(251, 192, 45, 1);
+  }
+}
+
+@keyframes tiltShake {
+  0%   { transform: rotate(0deg); }
+  20%  { transform: rotate(2deg); }
+  40%  { transform: rotate(-2deg); }
+  60%  { transform: rotate(2deg); }
+  80%  { transform: rotate(-2deg); }
+  100% { transform: rotate(0deg); }
+}
+
+/* ===== CLASS PANEL ===== */
+
+.class-panel {
+  display: none;
+  background: #ffffff;
+  border-top: 3px solid #2d5ea8;
+  padding: 20px;
+  animation: slideDownClass 0.3s ease;
+}
+
+.class-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 12px;
+}
+
+.class-grid button {
+  padding: 10px;
+  border: none;
+  background: purple;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.class-grid button:hover {
+  background: palegreen;
+  transform: scale(1.05);
+}
+
+@keyframes slideDownClass {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+/* =========================
+   SUB PANELS (LIVE, GUIDE, COURSES)
+========================= */
+
+.sub-panel {
+  display: none;           /* Hidden by default */
+  background: #f5f7fb;
+  padding: 20px 15px;
+  animation: fadeDown 0.5s ease forwards;
+  margin-top: 10px;        /* Space below nav */
+  border-radius: 8px;
+}
+
+/* Grid layout for buttons inside panel */
+.panel-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 15px;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* Buttons in panel */
+.panel-grid button {
+  position: relative;
+  overflow: hidden;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #4CAF50, #1b5e20);
+  color: white;
+  cursor: pointer;
+
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  animation: fadeUp 0.7s ease forwards;
+}
+
+/* Hover */
+.panel-grid button:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Click */
+.panel-grid button:active {
+  transform: scale(0.92);
+  animation: bounce 0.35s ease;
+}
+
+/* Ripple effect */
+.panel-grid button::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.panel-grid button:active::after {
+  animation: ripple 0.6s ease-out;
+}
+
+/* Glow on focus */
+.panel-grid button:focus {
+  outline: none;
+  animation: glow 1s infinite alternate;
+}
