@@ -1,0 +1,123 @@
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+<meta charset="UTF-8">
+<title>Education Guru NP – Health Education</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f5f9;
+  }
+
+  h1 {
+    text-align: center;
+    padding: 15px;
+  }
+
+  .unit-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .unit-card {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .unit-title {
+    background: #16a34a;
+    color: white;
+    padding: 14px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .video-box {
+    display: none;
+  }
+
+  iframe {
+    width: 100%;
+    height: 260px;
+    border: none;
+  }
+
+  @media (min-width: 768px) {
+    iframe {
+      height: 315px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<h1>स्वास्थ्य शिक्षा</h1>
+
+<div id="unitContainer" class="unit-container"></div>
+
+<script>
+const units = [
+  {
+    name: "मानव शरीर",
+    video: "zWhaY3mTl_o"
+  },
+  {
+    name: "सामुदायिक स्वास्थ्य",
+    video: "8rBy5wAlAuM"
+  },
+  {
+    name: "पोषण र खाद्य सुरक्षा",
+    video: "alsKn-9oCh0"
+  },
+  {
+    name: "रोग सुरक्षा र प्राथमिक उपचार",
+    video: "m1csn6sE9tY"
+  },
+  {
+    name: "यौनिक तथा प्रजनन स्वास्थ्य",
+    video: "9fltFX-8uXA"
+  }
+];
+
+const container = document.getElementById("unitContainer");
+
+units.forEach((unit, index) => {
+  const card = document.createElement("div");
+  card.className = "unit-card";
+
+  card.innerHTML = `
+    <div class="unit-title">${unit.name}</div>
+    <div class="video-box" id="video${index}">
+      <iframe src="https://www.youtube.com/embed/${unit.video}"
+        allowfullscreen></iframe>
+    </div>
+  `;
+
+  card.querySelector(".unit-title").onclick = () => toggleVideo(index);
+  container.appendChild(card);
+});
+
+function toggleVideo(index) {
+  const video = document.getElementById("video" + index);
+  video.style.display = video.style.display === "block" ? "none" : "block";
+}
+</script>
+
+</body>
+</html>
